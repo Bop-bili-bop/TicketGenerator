@@ -1,0 +1,15 @@
+@font-face {
+    font-family: Inconsolata;
+    src: url('./assets/fonts/Inconsolata-VariableFont.ttf');
+}
+
+@import "tailwindcss";
+
+@theme{
+    --font-inconsolata: Inconsolata, "sans-serif"
+}
+@layer base {
+    body {
+      @apply font-inconsolata;
+    }
+  }
