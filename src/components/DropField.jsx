@@ -26,7 +26,7 @@ const Dropzone = (props) => {
 
   return (
     <div
-      className="container flex justify-center items-center text-center text-white border-2 border-dashed p-4 border-[#8784A5] bg-[#201B3D] hover:bg-[#3D3957]  rounded-xl"
+      className="container flex justify-center items-center text-center text-white border-2 border-dashed p-4 border-[#8784A5] bg-[#201B3D] hover:bg-[#3D3957]  rounded-xl cursor-pointer"
     >
       <div {...getRootProps({ className: "dropzone" })}>
         {/*

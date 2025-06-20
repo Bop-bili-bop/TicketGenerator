@@ -23,15 +23,15 @@ const InputField = ({
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"
       />
       <path fill="currentColor" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         d="M8.004 10.462V7.596M8 5.569v-.042"
       />
     </svg>
@@ -46,7 +46,7 @@ const InputField = ({
       )}
 
       <div
-        className={`flex bg-neutral-400/15 items-center border px-2 py-4 rounded-xl border-neutral-400/50 hover:bg-neutral-400/40 hover:cursor-pointer transition-colors  ${
+        className={`flex bg-neutral-400/15 items-center border rounded-xl border-neutral-400/50 hover:bg-neutral-400/40 hover:cursor-pointer transition-colors  ${
           isFocused
             ? "ring-1 ring-offset-2 ring-offset-black ring-neutral-300/85"
             : error
@@ -60,7 +60,7 @@ const InputField = ({
 
         <input
           id={id}
-          className="text-base w-full focus:outline-none hover:cursor-pointer"
+          className="text-base w-full px-2 py-4 focus:outline-none hover:cursor-pointer rounded-xl"
           disabled={disabled}
           {...rest}
         />

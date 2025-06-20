@@ -7,16 +7,32 @@
 
 @theme{
     --font-inconsolata: Inconsolata, "sans-serif";
-    --color-custom-neutral-900: "#0D082D";
-    --color-custom-neutral-700: "#4B4869";
-    --color-custom-neutral-500: "#8784A5";
-    --color-custom-neutral-300: "#D1D0D5";
-    --color-custom-neutral-0:   "#FFFFFF";
-    --color-custom-orange-700:  "#E1604F";
-    --color-custom-orange-500:  "#F57463";
+    --color-custom-neutral-900: #0D082D;
+    --color-custom-neutral-700: #4B4869;
+    --color-custom-neutral-500: #8784A5;
+    --color-custom-neutral-300: #D1D0D5;
+    --color-custom-neutral-0:   #FFFFFF;
+    --color-custom-orange-700:  #E1604F;
+    --color-custom-orange-500:  #F57463;
+
+    --hero-desktop: url('/images/background-desktop.png');
+    --hero-tablet: url('/images/background-tablet.png');
+    --hero-mobile: url('/images/background-mobile.png');
 }
 @layer base {
     body {
       @apply font-inconsolata;
     }
   }
+
+@layer utilities{
+  .bg-hero-desktop{
+    background-image: var(--hero-desktop);
+  }
+  .bg-hero-tablet{
+    background-image: var(--hero-tablet);
+  }
+  .bg-hero-mobile{
+    background-image: var(--hero-mobile);
+  }
+}
