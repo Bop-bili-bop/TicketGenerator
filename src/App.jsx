@@ -5,6 +5,8 @@ import patternLines from "./assets/images/pattern-lines.svg";
 import logoCompany from "./assets/images/logo-mark.svg";
 import patternSquigglyLineTop from "./assets/images/pattern-squiggly-line-top.svg";
 import InputField from "./components/InputField";
+import Button from "./components/Button"
+import DropField from "./components/DropField"
 
 function App() {
   const {
@@ -37,10 +39,17 @@ function App() {
           Secure your spot at next year's biggest coding conference.
         </h3>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className="">
-        <InputField 
-         error='nigga'/>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full max-w-md mx-auto mt-6 p-6 rounded-xl flex flex-col gap-4 "
+      >
+        <DropField name='my-fule'/>
+        <InputField label="Full Name" />
+        <InputField label="Email Address" />
+        <InputField label="Github Username" />
+        <Button>Generate My Ticket</Button>
       </form>
+
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ReactComponent as iconInfo } from "../assets/images/icon-info.svg";
 
 const InputField = ({
   label,
@@ -7,13 +6,36 @@ const InputField = ({
   disabled = false,
   error,
   icon,
-  select,
-  defaultOption,
-  selectOptions,
   id,
+  dragDrop,
   ...rest
 }) => {
   const [isFocused, setIsFocused] = useState(false);
+
+  const IconInfo = ({ className = "" }) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="none"
+      viewBox="0 0 16 16"
+      className={className}
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z"
+      />
+      <path fill="currentColor" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M8.004 10.462V7.596M8 5.569v-.042"
+      />
+    </svg>
+  );
 
   return (
     <div className="mb-4 text-white ">
@@ -24,7 +46,7 @@ const InputField = ({
       )}
 
       <div
-        className={`flex bg-neutral-400/15 items-center border px-2 py-2 rounded-lg border-neutral-400/50 hover:bg-neutral-400/40 hover:cursor-pointer transition-colors  ${
+        className={`flex bg-neutral-400/15 items-center border px-2 py-4 rounded-xl border-neutral-400/50 hover:bg-neutral-400/40 hover:cursor-pointer transition-colors  ${
           isFocused
             ? "ring-1 ring-offset-2 ring-offset-black ring-neutral-300/85"
             : error
@@ -35,38 +57,23 @@ const InputField = ({
         onBlur={() => setIsFocused(false)}
       >
         {icon && <div className="mr-2">{icon}</div>}
-        {select ? (
-          <select
-            id={id}
-            className="text-base focus:outline-none w-full rounded-md border-neutral-300 text-neutral-500"
-            disabled={disabled}
-            {...rest}
-          >
-            <option value="">{defaultOption}</option>
-            {selectOptions.map((option) => (
-              <option key={option.code} value={option.name}>
-                {option.name}
-              </option>
-            ))}
-          </select>
-        ) : (
-          <input
-            id={id}
-            className="text-base w-full focus:outline-none hover:cursor-pointer"
-            disabled={disabled}
-            {...rest}
-          />
-        )}
+
+        <input
+          id={id}
+          className="text-base w-full focus:outline-none hover:cursor-pointer"
+          disabled={disabled}
+          {...rest}
+        />
       </div>
       {(hint || error) && (
         <div className="mt-2 text-sm flex items-center">
           <IconInfo
             className={`
-        h-5 w-5 fill-current
+        h-5 w-5 
         ${error ? "text-red-600" : "text-neutral-200/80"}
       `}
           />
-          {hint && <p className="pl-2">{hint}</p>}
+          {hint && <p className="pl-2 text-neutral-400">{hint}</p>}
           {error && <p className="pl-2 text-red-600">{error}</p>}
         </div>
       )}
