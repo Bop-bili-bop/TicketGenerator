@@ -11,9 +11,11 @@ import Description from "./components/Description";
 import DropField from "./components/DropField";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import Ticket from "./components/Ticket";
 
 function App() {
-  const [isSubmitted, setIsSubmitted] = useState(true);
+  const [formData, setFormData] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const ticketRegistrationInfo = yup.object({
     // photoAvatar: yup.mixed().required(),
     fullName: yup
@@ -36,6 +38,7 @@ function App() {
     mode: "onBlur",
   });
   const onSubmit = (data) => {
+    setFormData(data);
     setIsSubmitted(true);
     console.log(data);
   };
@@ -48,11 +51,11 @@ function App() {
         ></div>
       </div>
       {!isSubmitted ? (
-        <div>
+        <>
           <div className="flex flex-col justify-center items-center px-2">
             <Header>Coding Conf</Header>
-            <Title>Your Journey to Coding Conf 2025 Starts Here!</Title>
-            <Description>
+            <Title className='mb-5'>Your Journey to Coding Conf 2025 Starts Here!</Title>
+            <Description className="sm:mb-10 mb-[45px]">
               Secure your spot at next year's biggest coding conference.
             </Description>
           </div>
@@ -83,17 +86,22 @@ function App() {
               Generate My Ticket
             </Button>
           </form>
-        </div>
+        </>
       ) : (
         <div className="flex flex-col justify-center items-center px-2">
           <Header>Coding Conf</Header>
-          <Title>
-            Congrats, <span className="">Jonatan Kristof!</span> Your ticket is ready.
+          <Title className="mb-5 md:mb-8">
+            Congrats, <span className="gradient-01">{ formData.fullName || "Jonatan Kristof"}!</span> Your
+            ticket is ready.
           </Title>
-          <Description>
-            We've emailed your ticket to <span className="">jonatan@email.com</span> and will
-            send updates in the run up to the event.
+          <Description className="max-w-md md:mb-[111px] sm:mb-20 mb-18">
+            We've emailed your ticket to{" "}
+            <a href={`mailto:${formData.email || "jonatan@gmail.com"}`} className="text-[#F57463]">
+              {formData.email || "jonatan@gmail.com"}{" "}
+            </a>
+            and will send updates in the run up to the event.
           </Description>
+          <Ticket />
         </div>
       )}
     </div>

@@ -40,7 +40,7 @@ const InputField = ({
   return (
     <div className="mb-4 text-white ">
       {label && (
-        <label htmlFor={id} className="block mb-1">
+        <label htmlFor={id} className="text-xl block mb-1">
           {label}
         </label>
       )}
@@ -60,13 +60,13 @@ const InputField = ({
 
         <input
           id={id}
-          className="text-base w-full px-2 py-4 focus:outline-none hover:cursor-pointer rounded-xl"
+          className="text-lg w-full px-2 py-4 focus:outline-none hover:cursor-pointer rounded-xl"
           disabled={disabled}
           {...rest}
         />
       </div>
       {(hint || error) && (
-        <div className="mt-2 text-sm flex items-center">
+        <div className="mt-2 text-xs flex items-center">
           <IconInfo
             className={`
         h-5 w-5 

@@ -36,3 +36,10 @@
     background-image: var(--hero-mobile);
   }
 }
+
+.gradient-01 {
+  background: linear-gradient(90deg, #F37362 0%, #FFF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
