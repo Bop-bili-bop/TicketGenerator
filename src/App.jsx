@@ -42,6 +42,11 @@ function App() {
     setIsSubmitted(true);
     console.log(data);
   };
+  const generateTicketID = () => {
+    const ticketStart = "#0";
+    const randomNumber = Math.floor(1000 + Math.random() * 9000);
+    return ticketStart + randomNumber;
+  }
   return (
     <div className="">
       <div className="absolute inset-0 bg-cover bg-center -z-99 bg-hero-desktop md:bg-hero-tablet lg:bg-hero-desktop">
@@ -54,16 +59,18 @@ function App() {
         <>
           <div className="flex flex-col justify-center items-center px-2">
             <Header>Coding Conf</Header>
-            <Title className='mb-5'>Your Journey to Coding Conf 2025 Starts Here!</Title>
-            <Description className="sm:mb-10 mb-[45px]">
+            <Title className="mb-5">
+              Your Journey to Coding Conf 2025 Starts Here!
+            </Title>
+            <Description className="mb-10 sm:mb-[45px]">
               Secure your spot at next year's biggest coding conference.
             </Description>
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="w-full max-w-md mx-auto mt-6 p-6 rounded-xl flex flex-col gap-4 "
+            className="w-full max-w-md mx-auto px-6 rounded-xl flex flex-col gap-4 "
           >
-            {/* <DropField name="photo-user-avatar" /> */}
+            <InputField dragNDrop/>
             <InputField
               label="Full Name"
               id="full-name"
@@ -91,17 +98,27 @@ function App() {
         <div className="flex flex-col justify-center items-center px-2">
           <Header>Coding Conf</Header>
           <Title className="mb-5 md:mb-8">
-            Congrats, <span className="gradient-01">{ formData.fullName || "Jonatan Kristof"}!</span> Your
-            ticket is ready.
+            Congrats,{" "}
+            <span className="gradient-01">
+              {formData.fullName || "Jonatan Kristof"}!
+            </span>{" "}
+            Your ticket is ready.
           </Title>
-          <Description className="max-w-md md:mb-[111px] sm:mb-20 mb-18">
+          <Description className="max-w-md md:mb-20 sm:mb-18 mb-14">
             We've emailed your ticket to{" "}
-            <a href={`mailto:${formData.email || "jonatan@gmail.com"}`} className="text-[#F57463]">
+            <a
+              href={`mailto:${formData.email || "jonatan@gmail.com"}`}
+              className="text-[#F57463]"
+            >
               {formData.email || "jonatan@gmail.com"}{" "}
             </a>
             and will send updates in the run up to the event.
           </Description>
-          <Ticket />
+          <Ticket
+            ghUserName={formData.githubUserName}
+            fullName={formData.fullName}
+            ticketID={generateTicketID() || "#03412"}
+          />
         </div>
       )}
     </div>

@@ -26,17 +26,14 @@ const Dropzone = (props) => {
 
   return (
     <div
-      className="container flex justify-center items-center text-center text-white border-2 border-dashed p-4 border-[#8784A5] bg-[#201B3D] hover:bg-[#3D3957]  rounded-xl cursor-pointer"
+      className="container flex justify-center items-center text-center text-white border-2 border-dashed border-[#8784A5] bg-[#201B3D] hover:bg-[#3D3957]  rounded-xl cursor-pointer"
     >
       <div {...getRootProps({ className: "dropzone" })}>
-        {/*
-          Add a hidden file input 
-          Best to use opacity 0, so that the required validation message will appear on form submission
-        */}
         <input
           type="file"
           name={name}
           required={required}
+          className="p-4 hover:cursor-pointer "
           style={{ opacity: 0 }}
           ref={hiddenInputRef}
         />

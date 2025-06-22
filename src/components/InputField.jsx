@@ -1,13 +1,13 @@
 import { useState } from "react";
+import DropField from "./DropField"
 
 const InputField = ({
   label,
   hint,
   disabled = false,
   error,
-  icon,
   id,
-  dragDrop,
+  dragNDrop,
   ...rest
 }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -46,7 +46,7 @@ const InputField = ({
       )}
 
       <div
-        className={`flex bg-neutral-400/15 items-center border rounded-xl border-neutral-400/50 hover:bg-neutral-400/40 hover:cursor-pointer transition-colors  ${
+        className={`flex bg-neutral-400/15 h-13 items-center border rounded-xl border-neutral-400/50 hover:bg-neutral-400/40 hover:cursor-pointer transition-colors  ${
           isFocused
             ? "ring-1 ring-offset-2 ring-offset-black ring-neutral-300/85"
             : error
@@ -56,14 +56,16 @@ const InputField = ({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
       >
-        {icon && <div className="mr-2">{icon}</div>}
-
-        <input
-          id={id}
-          className="text-lg w-full px-2 py-4 focus:outline-none hover:cursor-pointer rounded-xl"
-          disabled={disabled}
-          {...rest}
-        />
+        {dragNDrop ? (
+          <DropField/>
+        ) : (
+          <input
+            id={id}
+            className="text-lg w-full px-2 py-4 focus:outline-none hover:cursor-pointer rounded-xl"
+            disabled={disabled}
+            {...rest}
+          />
+        )}
       </div>
       {(hint || error) && (
         <div className="mt-2 text-xs flex items-center">
