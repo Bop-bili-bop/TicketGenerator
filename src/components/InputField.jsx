@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DropField from "./DropField"
+import DropField from "./DropField";
 
 const InputField = ({
   label,
@@ -38,7 +38,7 @@ const InputField = ({
   );
 
   return (
-    <div className="mb-4 text-white ">
+    <div className="mb-4 text-white group ">
       {label && (
         <label htmlFor={id} className="text-xl block mb-1">
           {label}
@@ -46,18 +46,18 @@ const InputField = ({
       )}
 
       <div
-        className={`flex bg-neutral-400/15 h-13 items-center border rounded-xl border-neutral-400/50 hover:bg-neutral-400/40 hover:cursor-pointer transition-colors  ${
+        className={`flex bg-neutral-400/15 h-13 justify-center items-center rounded-xl ${dragNDrop && "border-2 border-dashed h-28"} ${
           isFocused
             ? "ring-1 ring-offset-2 ring-offset-black ring-neutral-300/85"
             : error
             ? "border-red-500 ring ring-red-500/30"
-            : ""
+            : "border border-neutral-400/50 hover:bg-neutral-400/40 hover:cursor-pointer transition-colors"
         }`}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
       >
         {dragNDrop ? (
-          <DropField/>
+          <DropField  />
         ) : (
           <input
             id={id}
