@@ -70,7 +70,7 @@ const InputField = ({
   }, [preview]);
 
   return (
-    <div className=" text-white group">
+    <div className="text-white group">
       {label && (
         <label htmlFor={id} className="text-lg block mb-1">
           {label}
@@ -83,7 +83,7 @@ const InputField = ({
           ${
             dragNDrop
               ? "border-2 border-dashed focus:border-custom-neutral-500 focus:outline-none backdrop-blur-md h-28 flex-col gap-2"
-              : "h-13"
+              : "h-[54px]"
           } 
           ${
             isFocused
@@ -167,9 +167,12 @@ const InputField = ({
             className={
               error ? "text-red-600 h-5 w-5" : "text-neutral-200/80 h-5 w-5"
             }
-          />
-          {hint && <p className="pl-2 text-neutral-400">{hint}</p>}
-          {error && <p className="pl-2 text-red-600">{error}</p>}
+          />{" "}
+          {error ? (
+            <p className="pl-2 text-red-600">{error}</p>
+          ) : (
+            <p className="pl-2 text-neutral-400">{hint}</p>
+          )}
         </div>
       )}
     </div>
