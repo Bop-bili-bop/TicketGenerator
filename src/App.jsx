@@ -36,7 +36,7 @@ function App() {
       {!isSubmitted ? (
         <>
           <div className="flex flex-col justify-center items-center px-2">
-            <Header className="mt-5 mb-8 sm:mb-12">Coding Conf</Header>
+            <Header className="mt-5 mb-6 sm:mb-4">Coding Conf</Header>
             <Title className="mb-6">
               Your Journey to Coding Conf 2025 Starts Here!
             </Title>
