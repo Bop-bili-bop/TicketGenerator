@@ -36,17 +36,17 @@ function App() {
       {!isSubmitted ? (
         <>
           <div className="flex flex-col justify-center items-center px-2">
-            <Header className="mt-5 mb-6 sm:mb-4">Coding Conf</Header>
-            <Title className="mb-6">
+            <Header className="mt-4 mb-4 sm:mb-2">Coding Conf</Header>
+            <Title className="mb-4">
               Your Journey to Coding Conf 2025 Starts Here!
             </Title>
-            <Description className="mb-4 sm:mb-[25px]">
+            <Description className="mb-2 sm:mb-[25px]">
               Secure your spot at next year's biggest coding conference.
             </Description>
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="w-full h-full max-w-md mx-auto px-6 rounded-xl flex flex-col gap-6 mt-2"
+            className="w-full h-full max-w-md mx-auto px-6 rounded-xl flex flex-col gap-4 mt-2"
           >
             <InputField
               name="photoAvatar"

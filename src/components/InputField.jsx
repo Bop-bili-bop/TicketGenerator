@@ -83,7 +83,7 @@ const InputField = ({
           ${
             dragNDrop
               ? "border-2 border-dashed focus:border-custom-neutral-500 focus:outline-none backdrop-blur-md h-28 flex-col gap-2"
-              : "h-[54px]"
+              : "h-12"
           } 
           ${
             isFocused

@@ -17,7 +17,10 @@ export const ticketRegistrationInfo = yup.object({
     .min(3, "Name should be atleast 3 characters long")
     .matches(/^[a-zA-Zа-яА-Я ]*$/, "Name can't contain numbers")
     .required("This field is required"),
-  email: yup.string().email().required(),
+  email: yup
+    .string()
+    .email("Please enter a valid email")
+    .required("This is a required field"),
   githubUserName: yup
     .string()
     .test("starts-with-@", "Username must start with @", (value) =>
